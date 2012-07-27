@@ -11,6 +11,8 @@ urlpatterns = patterns('siteNavigator.views',
     (r'^football/loginScreen', 'loginPage'),
     (r'^football/hero', 'hero'),
     (r'^football/LeagueSample', 'LeagueSample'),
+    (r'^football/DreamTeam', 'DreamTeam'),
+    (r'^football/LeagueRankings', 'LeagueRankings'),
     # url(r'^$', 'football.views.home', name='home'),
     # url(r'^football/', include('football.foo.urls')),
 

@@ -25,3 +25,12 @@ def LeagueSample(request):
     c = RequestContext(request, {'smiley':'cheese',})
     return HttpResponse(t.render(c))
  
+def DreamTeam(request):
+    t = get_template('DreamTeam.html')
+    c = RequestContext(request, {'smiley':'cheese',})
+    return HttpResponse(t.render(c))
+ 
+def LeagueRankings(request):
+    t = get_template('LeagueRankings.html')
+    c = RequestContext(request, {'smiley':'cheese',})
+    return HttpResponse(t.render(c))
