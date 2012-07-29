@@ -46,7 +46,7 @@
           <a class="brand" href="#">RotoJudge.com</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li><a href="home">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -63,18 +63,8 @@
       <!--Sidebar content-->
               <ul class="nav nav-pills nav-stacked">
                 <ul class="nav nav-pills">
-                  <li  class="active">
-                      <a href="LeagueSample">League Home</a>
-                  </li>
-                  <li>
-                    <a href="LeagueRankings">League Rankings</a>
-                  </li>
-                  <li>
-                    <a href="StartingPercent">Starting Percentages</a>
-                  </li>
-                  <li>
-                    <a href="DreamTeam">Your Dream Team</a>
-                  </li>
+                  {% block navPills %}
+                  {% endblock %}
                 </ul>
               </ul>
              </div>
@@ -83,9 +73,10 @@
       <!-- Example row of columns -->
             <div class="row">
             <div class="span8">
-              <h2>League Rankings</h2>
-                <p>This is a sample team home page. Check out the links on the side for our awesome features.  </p>
-               <p><a class="btn" href="#">Create Account &raquo;</a></p>
+              <p> These are all sample pages, to get these four your league, sign up now!</p>
+               <p><a class="btn" href="CreateAccount">Create Account &raquo;</a></p>
+              {% block content %} {% endblock %} !
+
             </div>
         </div>
      </div>

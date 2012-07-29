@@ -7,12 +7,12 @@ admin.autodiscover()
 urlpatterns = patterns('siteNavigator.views',
     # Examples:
 
-    (r'^football/$', 'home'),
+    (r'^football/home', 'home'),
     (r'^football/loginScreen', 'loginPage'),
-    (r'^football/hero', 'hero'),
     (r'^football/LeagueSample', 'LeagueSample'),
     (r'^football/DreamTeam', 'DreamTeam'),
     (r'^football/LeagueRankings', 'LeagueRankings'),
+    (r'^football/CreateAccount', 'CreateAccount'),
     # url(r'^$', 'football.views.home', name='home'),
     # url(r'^football/', include('football.foo.urls')),
 
