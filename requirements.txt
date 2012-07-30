@@ -1,7 +1,6 @@
 Django==1.4
 PyRSS2Gen==1.0.0
 Twisted==11.0.0
-altgraph==0.7.1
 bdist-mpkg==0.4.4
 bonjour-py==0.3
 include-server==3.1-toolwhip.1
