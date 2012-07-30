@@ -10,14 +10,14 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/juliaedholm/Desktop/Django/mysite/Database',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'ddrrh54l4np5ki',
+    'HOST': 'ec2-23-21-91-88.compute-1.amazonaws.com',
+    'PORT': 5432,
+    'USER': 'fnxgavbfmsrpmp',
+    'PASSWORD': 'j0saQGISbgj3oZeGrrml_orFuB',
+  }
 }
 
 # Local time zone for this installation. Choices can be found here:
