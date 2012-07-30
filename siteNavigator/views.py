@@ -34,3 +34,8 @@ def LeagueRankings(request):
     t = get_template('LeagueRankings.html')
     c = RequestContext(request, {'smiley':'cheese',})
     return HttpResponse(t.render(c))
+
+def StartingPercentages(request):
+    t = get_template('StartingPercentages.html')
+    c = RequestContext(request, {'smiley':'cheese',})
+    return HttpResponse(t.render(c))
