@@ -20,8 +20,8 @@ def loginPage(request):
 
 def LeagueSample(request):
     t = get_template('SampleLeagueA.html')
-    player={'name':'Joe' 'wins':'2'}
-    c = Context({'person':'player',})
+    player={'name':'Joe','wins':'2'}
+    c = Context({'person':player,})
     return HttpResponse(t.render(c))
  
 def DreamTeam(request):
