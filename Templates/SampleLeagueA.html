@@ -19,4 +19,26 @@
               <h2>League Home Page</h2>
                 <p>This is a sample team home page. Check out the links on the side for our awesome features.  </p>
                 <p> One member of your league is {{person.name}}. He has won {{person.wins}} games. </p>
+                
+                <h3>Recent Match Results</h3>
+                <table class ="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Player Name</th>
+                      <th> Opponent Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for player in team %}
+                    <tr>
+                      <td>
+                        {% if player.didWin %}
+                            <FONT COLOR ="24d624"> {{player.name}} </FONT>({{player.wins}})
+                        {% else %} {{player.name}} ({{player.wins}})
+                        {% endif %}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
 {% endblock %}
