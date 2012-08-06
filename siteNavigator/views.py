@@ -5,9 +5,7 @@ from django.template import Context, RequestContext
 import datetime
 
 def home(request):
-    t = get_template('heroHome.html')
-    c = RequestContext(request, {'smiley':'cheese',})
-    return HttpResponse(t.render(c))
+   return render_to_response('heroHome.html')
 
 def CreateAccount(request):
     t = get_template('CreateAccount.html')
@@ -22,7 +20,8 @@ def loginPage(request):
 
 def LeagueSample(request):
     t = get_template('SampleLeagueA.html')
-    c = RequestContext(request, {'smiley':'cheese',})
+    player={'name':'Joe' 'wins':'2'}
+    c = Context({'person':'player',})
     return HttpResponse(t.render(c))
  
 def DreamTeam(request):
@@ -37,5 +36,5 @@ def LeagueRankings(request):
 
 def StartingPercentages(request):
     t = get_template('StartingPercentages.html')
-    c = RequestContext(request, {'smiley':'cheese',})
+    c = RequestContext(request, {'Player1':'Joe','Player2':'Bill','Player3':'Jessica','Player4':'Sally'})
     return HttpResponse(t.render(c))

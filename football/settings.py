@@ -16,7 +16,7 @@ DATABASES = {
     'HOST': 'ec2-23-21-91-88.compute-1.amazonaws.com',
     'PORT': 5432,
     'USER': 'fnxgavbfmsrpmp',
-    'PASSWORD': 'j0saQGISbgj3oZeGrrml_orFuB',
+    'PASSWORD': 'j0saQGISbgj3oZeGrrml_orFuB'
   }
 }
 
@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'siteNavigator',
     'bootstrapped',
+    #'tables',
 )
 
 # A sample logging configuration. The only tangible logging

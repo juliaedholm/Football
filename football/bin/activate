@@ -39,7 +39,7 @@ deactivate () {
 # unset irrelavent variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/aedholm/GitTest1/RotoTest1/Football/Football"
+VIRTUAL_ENV="./football"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
