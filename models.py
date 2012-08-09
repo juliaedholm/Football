@@ -134,7 +134,20 @@ class FootballViewWeeklyStats(models.Model):
     rj_league_id = models.IntegerField(null=True, blank=True)
     player_pts_season = models.DecimalField(null=True, max_digits=65535, decimal_places=65535, blank=True)
     week_num = models.IntegerField(null=True, blank=True)
+    owner_name = models.CharField(max_length=250, blank=True)
     class Meta:
         db_table = u'football_view_weekly_stats'
         options.managed = False
 
+class FootballMainWeeklyMatchResults(models.Model):
+    rowid = models.IntegerField(primary_key=True)
+    home_rj_team_id = models.IntegerField(null=True, blank=True)
+    home_score = models.DecimalField(null=True, max_digits=65535, decimal_places=65535, blank=True)
+    away_rj_team_id = models.IntegerField(null=True, blank=True)
+    away_score = models.DecimalField(null=True, max_digits=65535, decimal_places=65535, blank=True)
+    week_num = models.IntegerField(null=True, blank=True)
+    date_add = models.DateTimeField(null=True, blank=True)
+    match_winner = models.IntegerField(null=True, blank=True)
+    class Meta:
+        db_table = u'football_main_weekly_match_results'
+        options.managed = False
