@@ -15,6 +15,7 @@ urlpatterns = patterns('siteNavigator.views',
     (r'^football/StartingPercentages', 'StartingPercentages'),
     (r'^football/DreamTeam', 'DreamTeam'),
     (r'^football/CreateAccount', 'CreateAccount'),
+    (r'^accounts/login/$', 'django.contrib.auth.views.login'),
     # url(r'^$', 'football.views.home', name='home'),
     # url(r'^football/', include('football.foo.urls')),
 

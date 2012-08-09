@@ -63,8 +63,18 @@
       <!--Sidebar content-->
               <ul class="nav nav-pills nav-stacked">
                 <ul class="nav nav-pills">
-                  {% block navPills %}
-                  {% endblock %}
+                   <li  {% ifequal pageType 'LeagueSample' %} class="active" {% endifequal %}> 
+                      <a href="LeagueSample">League Home</a>
+                  </li>
+                  <li  {% ifequal pageType 'LeagueRankings' %} class="active" {% endifequal %}>
+                    <a href="LeagueRankings">League Rankings</a>
+                  </li>
+                  <li {% ifequal pageType 'StartingPercentages' %} class="active" {% endifequal %}>
+                    <a href="StartingPercentages">Starting Percentages</a>
+                  </li>
+                  <li  {% ifequal pageType 'DreamTeam' %} class="active" {% endifequal %}>
+                    <a href="DreamTeam">Your Dream Team</a>
+                  </li>
                 </ul>
               </ul>
              </div>
@@ -72,17 +82,16 @@
          <div class="span10">
       <!-- Example row of columns -->
             <div class="row">
-            <div class="span8">
+            <div class="span10">
               <p> These are all sample pages, to get these four your league, sign up now!</p>
                <p><a class="btn" href="CreateAccount">Create Account &raquo;</a></p>
-               
-              {% block content %} {% endblock %}
-              
-              
               <h1> Under Development</h1>
+            </div>
+            </div>
+            
+                           
+              {% block content %} {% endblock %}
 
-            </div>
-            </div>
           </div>
         </div>
     </div>

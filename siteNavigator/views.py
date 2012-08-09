@@ -21,29 +21,20 @@ def loginPage(request):
 
 def LeagueSample(request):
     t = get_template('SampleLeagueA.html')
-<<<<<<< HEAD
-    player={'name':'Joe','wins':'2'}
-    c = Context({'person':player,})
-=======
+
     player1={'name':'A', 'wins':'1', 'didWin':'yes'}
     player2={'name':'B', 'wins':'2'}
     player3={'name':'C', 'wins':'3'}
     player4={'name':'D', 'wins':'4'}
-    c = Context({'team':[player1,player2,player3,player4]})
->>>>>>> making tables with logic
+    c = Context({'team':[player1,player2,player3,player4], 'pageType':'LeagueSample'})
     return HttpResponse(t.render(c))
  
 def DreamTeam(request):
-    t = get_template('DreamTeam.html')
-    c = RequestContext(request, {'smiley':'cheese',})
-    return HttpResponse(t.render(c))
+    return render_to_response('DreamTeam.html', { 'pageType':'DreamTeam'} )
  
 def LeagueRankings(request):
-    t = get_template('LeagueRankings.html')
-    c = RequestContext(request, {'smiley':'cheese',})
-    return HttpResponse(t.render(c))
+    return render_to_response('DreamTeam.html', { 'pageType':'LeagueRankings'} )
 
 def StartingPercentages(request):
-    t = get_template('StartingPercentages.html')
-    c = RequestContext(request, {'Player1':'Joe','Player2':'Bill','Player3':'Jessica','Player4':'Sally'})
-    return HttpResponse(t.render(c))
+    c = RequestContext(request, {'Player1':'Joe','Player2':'Bill','Player3':'Jessica','Player4':'Sally', 'pageType':'StartingPercentages'})
+    return render_to_response('StartingPercentages.html', c )

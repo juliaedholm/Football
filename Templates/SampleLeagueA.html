@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 {% extends 'LeaguePageBase.html' %}
 
-{% block navPills %}
-                  <li  class="active">
-                      <a href="LeagueSample">League Home</a>
-                  </li>
-                  <li>
-                    <a href="LeagueRankings">League Rankings</a>
-                  </li>
-                  <li>
-                    <a href="StartingPercentages">Starting Percentages</a>
-                  </li>
-                  <li>
-                    <a href="DreamTeam">Your Dream Team</a>
-                  </li>
-{% endblock %}
+
 {% block content %}
-              <h2>League Home Page</h2>
+              <div class= "row">
+              <div class= "span10">
+                <h2>League Home Page</h2>
                 <p>This is a sample team home page. Check out the links on the side for our awesome features.  </p>
-                <p> One member of your league is {{person.name}}. He has won {{person.wins}} games. </p>
-                
-                <h3>Recent Match Results</h3>
+              </div>
+              </div>
+              
+              <div class="row">
+                <div class="span5">
+                       <h3>Recent Match Results </h3>
                 <table class ="table table-striped table-bordered">
                   <thead>
                     <tr>
@@ -38,7 +30,17 @@
                         {% endif %}
                       </td>
                     </tr>
+                      {% empty %}
+                      <tr>
+                        <td> No More Matches </td>
+                      </tr>
                     {% endfor %}
                   </tbody>
                 </table>
+                </div>
+                <div class="span5">
+                  <p> This table shows the <FONT COLOR ="24d624"> winners </FONT> and loosers of last week's matches. Enjoy!</p>
+                </div>
+              </div>
+
 {% endblock %}
