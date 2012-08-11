@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'LeaguePageBase.html' %}
+
+
+{% block content %}
+              <div class= "row">
+              <div class= "span10">
+                <h2>Weekly Player Values</h2>
+                <p>This shows the player value of the players you started every week this season.  </p>
+              </div>
+              </div>
+              
+              <div class="row">
+                <div class="span5">
+                       <h3>Average Efficiency Rating </h3>
+                <table class ="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>NFL Player (Player ID NUMBER)</th>
+                      <th> Position</th>
+                      <th>Efficiency Rating(Pick Value)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for player in ERList %}
+                    <tr>
+                      <td>
+                        {{player.player_name}}
+                      </td>
+                      <td>
+                        {{player.player_position}}
+                      </td>
+                      <td>{{ player.pick_value}}</td>
+                    </tr>
+                      {% empty %}
+                      <tr>
+                        <td> No More Matches </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                </div>
+                <div class="span5">
+                  <p> This table shows the pick value of your players. Enjoy!</p>
+                </div>
+              </div>
+
+{% endblock %}

@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.loader import get_template
 from django.template import Context, RequestContext
+import models
+from models import FootballMainWeeklyMatchResults
+from models import FootballViewWeeklyStats
 import datetime
 
 def home(request):
@@ -22,11 +25,9 @@ def loginPage(request):
 def LeagueSample(request):
     t = get_template('SampleLeagueA.html')
 
-    player1={'name':'A', 'wins':'1', 'didWin':'yes'}
-    player2={'name':'B', 'wins':'2'}
-    player3={'name':'C', 'wins':'3'}
-    player4={'name':'D', 'wins':'4'}
-    c = Context({'team':[player1,player2,player3,player4], 'pageType':'LeagueSample'})
+    gameList = FootballMainWeeklyMatchResults.objects.filter(week_num='1')  
+
+    c = Context({'pageType':'LeagueSample', 'valueList': ''})
     return HttpResponse(t.render(c))
  
 def DreamTeam(request):
@@ -34,6 +35,10 @@ def DreamTeam(request):
  
 def LeagueRankings(request):
     return render_to_response('DreamTeam.html', { 'pageType':'LeagueRankings'} )
+
+def PlayerValues(request):
+    ownerERList=FootballViewWeeklyStats.objects.filter(week_num='10', rj_team_id='1').order_by("-pick_value")
+    return render_to_response('PlayerValues.html', { 'pageType':'PlayerValues', 'ERList': ownerERList} )
 
 def StartingPercentages(request):
     c = RequestContext(request, {'Player1':'Joe','Player2':'Bill','Player3':'Jessica','Player4':'Sally', 'pageType':'StartingPercentages'})
