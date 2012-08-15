@@ -59,25 +59,16 @@
         
     <div class="container-fluid">
         <div class="row-fluid">
-             <div class="span2">
-      <!--Sidebar content-->
+            
+                  <div class="span2">
+      <!--RightSidebar content-->
               <ul class="nav nav-pills nav-stacked">
                 <ul class="nav nav-pills">
-                   <li  {% ifequal pageType 'LeagueSample' %} class="active" {% endifequal %}> 
-                      <a href="LeagueSample">League Home</a>
+                  {% for owner in ownerList %} 
+                   <li{% ifequal {{ownerInfo.rj_team_id}} owner.rj_team_id %} class="active" {% endifequal %}> 
+                      <a href="/football/{{owner.rj_league_id}}/TeamOwnerPage/{{owner.rj_team_id}}">{{owner.team_name}}</a>
                   </li>
-                  <li  {% ifequal pageType 'LeagueRankings' %} class="active" {% endifequal %}>
-                    <a href="LeagueRankings">League Rankings</a>
-                  </li>
-                  <li {% ifequal pageType 'StartingPercentages' %} class="active" {% endifequal %}>
-                    <a href="StartingPercentages">Starting Percentages</a>
-                  </li>
-                  <li  {% ifequal pageType 'DreamTeam' %} class="active" {% endifequal %}>
-                    <a href="DreamTeam">Your Dream Team</a>
-                  </li>
-                   <li  {% ifequal pageType 'PlayerValues' %} class="active" {% endifequal %}>
-                    <a href="PlayerValues">Weekly Player Values</a
-                  </li>
+                   {% endfor %}
                 </ul>
               </ul>
              </div>
@@ -86,7 +77,7 @@
       <!-- Example row of columns -->
             <div class="row">
             <div class="span8">
-              <h1> Under Development</h1>
+              <h1> SAMPLE LEAGUE PAGE</h1>
               <p> These are all sample pages, to get these four your league, sign up now!</p>
                <p><a class="btn" href="/football/CreateAccount">Create Account &raquo;</a></p>
             </div>
@@ -97,18 +88,7 @@
          </div>
 
           
-          <div class="span2">
-      <!--RightSidebar content-->
-              <ul class="nav nav-pills nav-stacked">
-                <ul class="nav nav-pills">
-                  {% for owner in ownerList %} 
-                   <li> 
-                      <a href="/football/{{owner.rj_league_id}}/TeamOwnerPage/{{owner.rj_team_id}}">{{owner.team_name}}</a>
-                  </li>
-                   {% endfor %}
-                </ul>
-              </ul>
-             </div>
+    
         </div>
     </div>
 

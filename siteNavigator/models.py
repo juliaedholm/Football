@@ -127,11 +127,11 @@ class FootballTeams(models.Model):
 
 
 class FootballViewWeeklyStats(models.Model):
-    player_name = models.CharField(max_length=250, blank=True, primary_key=True)
+    player_name = models.CharField(max_length=250, blank=True,primary_key=True)
     player_position = models.CharField(max_length=50, blank=True)
     player_rank_season = models.IntegerField(null=True, blank=True)
-    pick_number_position = models.IntegerField(null=True, blank=True)
-    pick_value = models.IntegerField(null=True, blank=True)
+    pick_number_position = models.IntegerField(null=True, blank=True, )
+    pick_value = models.IntegerField( blank=True)
     team_name = models.CharField(max_length=500, blank=True)
     rj_team_id = models.IntegerField(null=True, blank=True)
     rj_league_id = models.IntegerField(null=True, blank=True)

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'SitewideBasePage.html' %}
+
+{% block pageStuff%}
+    
+        
+    <div class="container-fluid">
+        <div class="row-fluid">
+            
+                  <div class="span2">
+      <!--RightSidebar content-->
+              <ul class="nav nav-pills nav-stacked">
+                <ul class="nav nav-pills">
+                  {% for owner in ownerList %} 
+                   <li{% ifequal ownerInfo.rj_team_id owner.rj_team_id %} class="active" {% endifequal %}> 
+                      <a href="/football/{{owner.rj_league_id}}/TeamOwnerPage/{{owner.rj_team_id}}">{{owner.team_name}}</a>
+                  </li>
+                   {% endfor %}
+                </ul>
+              </ul>
+             </div>
+          
+         <div class="span8">
+      <!-- Example row of columns -->
+            <div class="row">
+            <div class="span8">
+              <h1> SAMPLE LEAGUE PAGE</h1>
+              <p> These are all sample pages, to get these four your league, sign up now!</p>
+               <p><a class="btn" href="/football/CreateAccount">Create Account &raquo;</a></p>
+            </div>
+            </div>
+            
+                           
+              {% block content %} {% endblock %}
+         </div>
+
+          
+    
+        </div>
+    </div>
+
+
+{% endblock %}}
+
+
+

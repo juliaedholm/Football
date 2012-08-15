@@ -6,6 +6,7 @@ from django.template import Context, RequestContext
 import models
 from models import FootballMainWeeklyMatchResults
 from models import FootballViewWeeklyStats
+from models import FootballTeams
 import datetime
 
 def home(request):
@@ -23,23 +24,31 @@ def loginPage(request):
     #return render_to_response('TestC.html',{'blah':'buh',}, context_instance=RequestContext(request))
 
 def LeagueSample(request):
+    ownersInLeague=FootballTeams.objects.filter(rj_league_id='1')
     t = get_template('SampleLeagueA.html')
-
     gameList = FootballMainWeeklyMatchResults.objects.filter(week_num='1')  
-
-    c = Context({'pageType':'LeagueSample', 'valueList': ''})
+    c = Context({'pageType':'LeagueSample', 'valueList': '','ownerList': ownersInLeague , 'matchList': gameList})
     return HttpResponse(t.render(c))
  
 def DreamTeam(request):
-    return render_to_response('DreamTeam.html', { 'pageType':'DreamTeam'} )
+    ownersInLeague=FootballTeams.objects.filter(rj_league_id='1')
+    return render_to_response('DreamTeam.html', { 'pageType':'DreamTeam', 'ownerList': ownersInLeague} )
  
+def TeamOwnerPage (request, owner_id, league_id):
+    ownersInLeague=FootballTeams.objects.filter(rj_league_id=league_id)
+    teamOwner=FootballTeams.objects.get(rj_team_id=owner_id)
+    ownerERList=FootballViewWeeklyStats.objects.filter(week_num='10', rj_team_id=owner_id).order_by("-pick_value")
+    return render_to_response('TeamOwnerPage.html', { 'ownerInfo': teamOwner, 'pageType': 'PlayerValues', 'ERList': ownerERList, 'ownerList': ownersInLeague} )
+        
 def LeagueRankings(request):
-    return render_to_response('DreamTeam.html', { 'pageType':'LeagueRankings'} )
+    ownersInLeague=FootballTeams.objects.filter(rj_league_id='1')
+    return render_to_response('LeagueRankings.html', { 'pageType':'LeagueRankings', 'ownerList': ownersInLeague} )
 
 def PlayerValues(request):
-    ownerERList=FootballViewWeeklyStats.objects.filter(week_num='10', rj_team_id='1').order_by("-pick_value")
-    return render_to_response('PlayerValues.html', { 'pageType':'PlayerValues', 'ERList': ownerERList} )
+    ownersInLeague=FootballTeams.objects.filter(rj_league_id='1')
+    return render_to_response('PlayerValues.html', { 'pageType':'PlayerValues', 'ownerList': ownersInLeague } )
 
 def StartingPercentages(request):
-    c = RequestContext(request, {'Player1':'Joe','Player2':'Bill','Player3':'Jessica','Player4':'Sally', 'pageType':'StartingPercentages'})
+    ownersInLeague=FootballTeams.objects.filter(rj_league_id='1')
+    c = RequestContext(request, {'ownerList': ownersInLeague,'Player1':'Joe','Player2':'Bill','Player3':'Jessica','Player4':'Sally', 'pageType':'StartingPercentages'})
     return render_to_response('StartingPercentages.html', c )

@@ -44,81 +44,27 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#">RotoJudge.com</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="/football/home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+          
         </div>
       </div>
     </div>
 
-    
+{% block pageStuff %} {% endblock %}    
         
-    <div class="container-fluid">
-        <div class="row-fluid">
-             <div class="span2">
-      <!--Sidebar content-->
-              <ul class="nav nav-pills nav-stacked">
-                <ul class="nav nav-pills">
-                   <li  {% ifequal pageType 'LeagueSample' %} class="active" {% endifequal %}> 
-                      <a href="LeagueSample">League Home</a>
-                  </li>
-                  <li  {% ifequal pageType 'LeagueRankings' %} class="active" {% endifequal %}>
-                    <a href="LeagueRankings">League Rankings</a>
-                  </li>
-                  <li {% ifequal pageType 'StartingPercentages' %} class="active" {% endifequal %}>
-                    <a href="StartingPercentages">Starting Percentages</a>
-                  </li>
-                  <li  {% ifequal pageType 'DreamTeam' %} class="active" {% endifequal %}>
-                    <a href="DreamTeam">Your Dream Team</a>
-                  </li>
-                   <li  {% ifequal pageType 'PlayerValues' %} class="active" {% endifequal %}>
-                    <a href="PlayerValues">Weekly Player Values</a
-                  </li>
-                </ul>
-              </ul>
-             </div>
-          
-         <div class="span8">
-      <!-- Example row of columns -->
-            <div class="row">
-            <div class="span8">
-              <h1> Under Development</h1>
-              <p> These are all sample pages, to get these four your league, sign up now!</p>
-               <p><a class="btn" href="/football/CreateAccount">Create Account &raquo;</a></p>
-            </div>
-            </div>
-            
-                           
-              {% block content %} {% endblock %}
-         </div>
-
-          
-          <div class="span2">
-      <!--RightSidebar content-->
-              <ul class="nav nav-pills nav-stacked">
-                <ul class="nav nav-pills">
-                  {% for owner in ownerList %} 
-                   <li> 
-                      <a href="/football/{{owner.rj_league_id}}/TeamOwnerPage/{{owner.rj_team_id}}">{{owner.team_name}}</a>
-                  </li>
-                   {% endfor %}
-                </ul>
-              </ul>
-             </div>
-        </div>
-    </div>
-
-
 
 
       <hr>
 
       <footer>
         <p>&copy; RotoJudge.com 2012</p>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/football/home">Home</a></li>
+             
+              <li  class="divider-vertical"><a href="#about">About</a></li>
+              <li class="divider-vertical"><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse --> 
       </footer>
 
     </div> <!-- /container -->
