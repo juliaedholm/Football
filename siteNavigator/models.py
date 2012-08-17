@@ -182,3 +182,15 @@ class FootballViewStartOptimal(models.Model):
     class Meta:
         db_table = u'football_view_start_optimal'
         #options.managed = False
+
+class FootballViewOptimalPercentages(models.Model):
+    rj_league_id = models.IntegerField(null=True, blank=True)
+    rj_team_id = models.IntegerField(null=True, blank=True)
+    team_name = models.CharField(max_length=500, blank=True)
+    week_num = models.IntegerField(null=True, blank=True)
+    count_optimal = models.BigIntegerField(null=True, blank=True)
+    max_optimal = models.DecimalField(null=True, max_digits=65535, decimal_places=65535, blank=True)
+    percent_optimal = models.DecimalField(null=True, max_digits=65535, decimal_places=65535, blank=True)
+    class Meta:
+        db_table = u'football_view_optimal_percentages'
+        #options.managed = False
