@@ -3,52 +3,63 @@
 
 
 {% block content %}
-       <div class= "row">
-          <div class= "span10">
+      <div class=row>
+          <div class= "span8">
                 
                  <h1>{{ownerInfo.team_name}}</h1>
                <div class="well">
-                  <p>Season long stats for the players on {{ownerInfo.owner_name}}'s team. {{ownerInfo.rj_team_id}}  </p>
+                  <p><span class="label">  Member since:</span> 9/1/12.</p>
+                  <p> <span class="label">  Record: </span>W-L-T</p>
+                  <p> <span class="label">  Rank in League </span>1-12 (from nfl site)</p>
+                  <p> <span class="label">  Average player value: </span>ER average</p>
+                  <p> <span class="label">  Average % smart starts: </span>% optimal starts</p>
               </div>
           </div>
+           <div class="span3">
+              <div class="well">
+                     <p></p>
+                   <p></p>
+                 <h1> PHOTO </h1>
+                 <h2>   </h2>
+                 <h2>  </h2>
+                <h2>{{ownerInfo.owner_name}}</h2>
+              </div>
+            </div>     
        </div>
        
+      <div class="tabbable"> <!-- Only required for left/right tabs -->
+         <ul class="nav nav-tabs">
+                   {% for week in goodStartList %}
+           <li class="active"><a href="#{{week.week_num}}" data-toggle="tab">Week {{week.week_num}}</a></li>   
+         </ul>
+           <div class="tab-content">
+            {% for week in goodStartList %}
+                 <div class="tab-pane active" id="{{week.week_num}}">
+                   <p>
+               {% include "SmartStarts.html" %}
+                    </p>
+           </div>
+               <div class="tab-pane" id="DreamTeam">
+                   <p>
+               {% include "OptimalStartTable.html" %}
+                    </p>
+           </div>
+            <div class="tab-pane" id="PlayerValues">
+                   <p>
+            {% include "PlayerValueTable.html" %}
+                   </p>
+            </div>
+
+        
+          
+      </div>
+
+
+      </div>
+
+                  
                         
-    <div class="row">
-            <div class="span10">
-                  <p> <span class="label"> Pick Value</span> This table shows the pick value of your players. For more info about how we calculate this stat, click the button below:</p>
-               <p><a class="btn" href="/football/stats/PlayerValues">More Info &raquo;</a></p>
-            </div>   
 
-
-                <table class ="table table-striped table-bordered">
-                  <thead>
-                    <tr>
-                      <th>NFL Player (Player ID NUMBER)</th>
-                      <th> Position</th>
-                      <th>Efficiency Rating(Pick Value)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {% for player in ERList %}
-                    <tr>
-                      <td>
-                        {{player.player_name}}
-                      </td>
-                      <td>
-                        {{player.player_position}}
-                      </td>
-                      <td>{{player.pick_value}}</td>
-                    </tr>
-                      {% empty %}
-                      <tr>
-                        <td> No Players to display, please contact us to report this issue! </td>
-                      </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-    </div>
-    
     
 
 {% endblock %}

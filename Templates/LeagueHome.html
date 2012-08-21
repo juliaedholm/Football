@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'LeaguePageBaseB.html' %}
+
+
+
+{% block content %}
+        <div class= "row">
+              <div class= "span10">
+                <h2>League Home Page</h2>
+                <p>This is a sample team home page. Check out the links on the side for our awesome features.  </p>
+              </div>
+              </div>
+              
+              <div class="row">
+                <div class="span5">
+                       <h3>Recent Match Results </h3>
+                <table class ="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>HomeTeam (RJ ID NUMBER)</th>
+                      <th>Away Team(RJ ID NUMBER)</th>
+                      <th>Winning Team (RJ ID NUMBER)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for match in matchList %}
+                    <tr>
+                      <td>
+                        {% if 0 %}
+                           <FONT COLOR ="24d624"> {{player.name}} </FONT>({{player.wins}})
+                        {% else %} {{match.home_rj_team_id}} ({{match.home_score}})
+                        {% endif %}
+                      </td>
+                      <td>
+                        {{match.away_rj_team_id}}({{match.away_score}})
+                      </td>
+                      <td>
+                        <FONT COLOR ="24d624">{{match.match_winner}}</FONT>
+                      </td>
+                    </tr>
+                      {% empty %}
+                      <tr>
+                        <td> No More Matches </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                </div>
+                <div class="span5">
+                  <p> This table shows the <FONT COLOR ="24d624"> winners </FONT> and loosers of last week's matches. Enjoy!</p>
+                </div>
+              </div>
+    
+    
+
+{% endblock %}
