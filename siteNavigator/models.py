@@ -170,7 +170,7 @@ class FootballViewStartResults(models.Model):
         #options.managed = False
         
 class FootballViewStartOptimal(models.Model):
-    team_name = models.CharField(max_length=500, blank=True)
+    team_name = models.CharField(max_length=500, primary_key=True)
     player_name = models.CharField(max_length=250, blank=True)
     player_position = models.CharField(max_length=50, blank=True)
     team_position = models.CharField(max_length=50, blank=True)
@@ -184,7 +184,7 @@ class FootballViewStartOptimal(models.Model):
         #options.managed = False
 
 class FootballViewOptimalPercentages(models.Model):
-    rj_league_id = models.IntegerField(null=True, blank=True)
+    rj_league_id = models.IntegerField(blank=True, primary_key=True)
     rj_team_id = models.IntegerField(null=True, blank=True)
     team_name = models.CharField(max_length=500, blank=True)
     week_num = models.IntegerField(null=True, blank=True)
@@ -193,4 +193,23 @@ class FootballViewOptimalPercentages(models.Model):
     percent_optimal = models.DecimalField(null=True, max_digits=65535, decimal_places=65535, blank=True)
     class Meta:
         db_table = u'football_view_optimal_percentages'
+        #options.managed = False
+        
+class FootballViewOptimalPercentagesSeason(models.Model):
+    rj_league_id = models.IntegerField(null=True, blank=True)
+    rj_team_id = models.IntegerField(null=True, blank=True)
+    team_name = models.CharField(max_length=500, blank=True)
+    season_avg = models.DecimalField(null=True, max_digits=65535, decimal_places=65535, blank=True)
+    class Meta:
+        db_table = u'football_view_optimal_percentages_season'
+        #options.managed = False
+
+class FootballViewPickValuesTeam(models.Model):
+    rj_league_id = models.IntegerField(null=True, blank=True)
+    rj_team_id = models.IntegerField(null=True, blank=True)
+    team_name = models.CharField(max_length=500, blank=True)
+    week_num = models.IntegerField(null=True, blank=True)
+    total_team_pick_value = models.BigIntegerField(null=True, blank=True)
+    class Meta:
+        db_table = u'football_view_pick_values_team'
         #options.managed = False
